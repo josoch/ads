@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+
+</head>
+<body>
+
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            Data entry Form
+
+        </div>
+        <div class="card-block">
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#home" role="tab">Arrivals</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#profile" role="tab">Departures</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#messages" role="tab">Events</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#settings" role="tab">News</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#company" role="tab">Airport Setup</a>
+                </li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div class="tab-pane active" id="home" role="tabpanel">
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form id="frm-arr">
+                                <div class="form-group">
+                                    <label for="a-from">Arriving From</label>
+                                    <input type="text" class="form-control" id="a-from" name="a-from"
+                                           placeholder="Location">
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="a-airline">Air Line</label>
+                                    <input type="text" class="form-control" id="a-airline" name="a-airline">
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="a-airline">Air Line Logo</label>
+                                    <input type="file" name="fileToUpload" id="fileToUpload">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="a-flight">Flight</label>
+                                    <input type="text" class="form-control" id="a-flight" name="a-flight"
+                                           placeholder="Flight #">
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="a-shed">Sheduled</label>
+                                    <input type="time" class="form-control" id="a-shed" name="a-shed"
+                                           placeholder="Sheduled Time">
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="a-gate">Gate</label>
+                                    <input type="text" class="form-control" id="a-gate" name="a-gate"
+                                           placeholder="Gate #">
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="a-remark">Gate</label>
+                                    <input type="text" class="form-control" id="a-remark" name="a-remark"
+                                           placeholder="Remark">
+
+                                </div>
+                                <button type="button" class="btn btn-primary" onclick="save('A')">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table id="arr" class="table  table-sm ">
+                                <thead>
+                                <tr>
+                                    <th>Arriving From</th>
+                                    <th>Airline</th>
+                                    <th>Flight</th>
+                                    <th>Sched</th>
+                                    <th>Gate</th>
+                                    <th>Remark</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="tab-pane" id="profile" role="tabpanel">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form id="frm-dep">
+                                <div class="form-group">
+                                    <label for="d-from">Arriving From</label>
+                                    <input type="text" class="form-control" id="d-from" name="a-from"
+                                           placeholder="Location">
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="d-airline">Air Line</label>
+                                    <input type="text" class="form-control" id="d-airline" name="a-airline">
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="a-airline">Air Line Logo</label>
+                                    <input type="file" name="fileToUpload" id="d-fileToUpload">
+                                </div>
+                                <div class="form-group">
+                                    <label for="d-flight">Flight</label>
+                                    <input type="text" class="form-control" id="d-flight" name="a-flight"
+                                           placeholder="Flight #">
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="d-shed">Sheduled</label>
+                                    <input type="time" class="form-control" id="d-shed" name="a-shed"
+                                           placeholder="Sheduled Time">
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="d-gate">Gate</label>
+                                    <input type="text" class="form-control" id="d-gate" name="a-gate"
+                                           placeholder="Gate #">
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="d-remark">Gate</label>
+                                    <input type="text" class="form-control" id="d-remark" name="a-remark"
+                                           placeholder="Remark">
+
+                                </div>
+                                <button type="button" class="btn btn-primary" onclick="save('D')">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table id="dep" class="table  table-sm ">
+                                <thead>
+                                <tr>
+                                    <th>Departing To</th>
+                                    <th>Airline</th>
+                                    <th>Flight</th>
+                                    <th>Sched</th>
+                                    <th>Gate</th>
+                                    <th>Remark</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="messages" role="tabpanel">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form id="frm-eve">
+                                <div class="form-group">
+                                    <label for="start">Start</label>
+                                    <input type="time" class="form-control" id="start" name="start"
+                                           placeholder="Location">
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="end">End</label>
+                                    <input type="time" class="form-control" id="end" name="end" placeholder="Location">
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="event">Event</label>
+                                    <input type="text" class="form-control" id="event" name="event" placeholder="Event">
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="location">Location</label>
+                                    <input type="text" class="form-control" id="location" name="location"
+                                           placeholder="Location">
+
+                                </div>
+
+
+                                <button type="button" class="btn btn-primary" onclick="saveEvent()">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table id="eve" class="table  table-sm ">
+                                <thead>
+                                <tr>
+                                    <th>Start</th>
+                                    <th>End</th>
+                                    <th>Event</th>
+                                    <th>Location</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="settings" role="tabpanel">
+
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form id="frm-news">
+                                <div class="form-group">
+                                    <label for="a-from">News </label>
+                                    <textarea class="form-control" id="newstext" name="newstext"></textarea>
+
+                                </div>
+
+                                <button type="button" class="btn btn-primary" onclick="savenews()">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table id="news-t" class="table  table-sm ">
+                                <thead>
+                                <tr>
+                                    <th>News</th>
+                                    <th>Delete</th>
+
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="company" role="tabpanel">
+
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form id="frm-com">
+                                <div class="form-group">
+                                    <label for="a-from">Airport Name </label>
+                                    <input class="form-control" id="airport" name="airport">
+
+                                </div>
+
+                                <button type="button" class="btn btn-primary" onclick="updateAir()">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap-notify.min.js"></script>
+
+<script>
+    loadData();
+    loadEve();
+    loadNews();
+    edit_air();
+    var arrdep_savemode = 'a';
+    var event_savemode = 'a';
+
+    var arrdepid;
+    var eventid;
+    function save(type) {
+        // You need to use standard javascript object here
+//        var formData;
+        var data_;
+
+        var url;
+
+        if (arrdep_savemode == 'a') {
+            url = 'add.php'
+            var form;
+            if (type == 'A') {
+                form = $('#frm-arr')[0];
+
+//                data_ = $('#frm-arr').serialize() + '&tp=' + type;
+            }
+            else if (type == 'D') {
+                form = $('#frm-dep')[0]
+
+//                data_ = $('#frm-dep').serialize() + '&tp=' + type;
+            }
+            var formData = new FormData(form);
+            formData.append('tp', type);
+            data_ = formData
+        }
+        else if (arrdep_savemode == 'd') {
+            url = 'update.php';
+            var form;
+            if (type == 'A') {
+                form = $('#frm-arr')[0];
+
+//                data_ = $('#frm-arr').serialize() + '&tp=' + type + '&id=' + arrdepid;
+            }
+            else if (type == 'D') {
+                form = $('#frm-dep')[0]
+
+//                data_ = $('#frm-dep').serialize() + '&tp=' + type + '&id=' + arrdepid;
+            }
+            var formData = new FormData(form);
+            formData.append('tp', type);
+            formData.append('id', arrdepid);
+            data_ = formData
+        }
+
+        $.ajax({
+            type: 'POST',
+            url: url,
+            data: data_,
+//            dataType: "JSON",
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+//alert(data)
+                if (data == '1') {
+                    $('#frm-arr')[0].reset();
+                    $('#frm-dep')[0].reset();
+                    loadData();
+                    msg("Record Added Successfully");
+                }
+                arrdep_savemode = 'a';
+            }
+            ,
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log(textStatus, errorThrown);
+            }
+        });
+    }
+    function saveEvent() {
+        var url;
+        var data_;
+        if (event_savemode == 'a') {
+            url = 'add_eve.php'
+            data_ = $('#frm-eve').serialize();
+        }
+        else if (event_savemode == 'd') {
+            url = 'update_eve.php'
+            data_ = $('#frm-eve').serialize() + '&id=' + eventid;
+
+        }
+
+
+        $.ajax({
+            type: 'POST',
+            url: url,
+            data: data_,
+            success: function (data) {
+
+                if (data == '1') {
+                    $('#frm-eve')[0].reset();
+
+                    loadEve();
+                    msg("Record Added Successfully");
+                }
+                event_savemode = 'a';
+            }
+            ,
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log(textStatus, errorThrown);
+            }
+        });
+    }
+    function savenews() {
+
+        data_ = $('#frm-news').serialize();
+
+        $.ajax({
+            type: 'POST',
+            url: 'add_new.php',
+            data: data_,
+            success: function (data) {
+
+                if (data == '1') {
+                    $('#frm-news')[0].reset();
+
+                    loadNews();
+                    msg("Record Added Successfully");
+                }
+            }
+            ,
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log(textStatus, errorThrown);
+            }
+        });
+    }
+
+
+    function loadData() {
+        $('#arr tbody').empty();
+        $('#dep tbody').empty();
+        $.ajax({
+            type: 'POST',
+            url: 'load.php',
+            dataType: 'json',
+            success: function (data) {
+
+//alert(data)
+                for (var i = 0; i < data.length; i++) {
+                    var btnCell = '<button id="d' + data[i][0] + '" type="button" class="btn btn-success btn-sm"   onclick="edit_(' + data[i][0] + ')">Edit</button>';
+                    var btnDelCell = '<button id="de' + data[i][0] + '" type="button" class="btn btn-danger btn-sm "   onclick="delete_(' + data[i][0] + ')">Delete</button>';
+
+                    if (data[i][7] == 'A') {
+                        $('#arr tbody').append('<tr><td>' + data[i][1] + '</td><td>' + data[i][2] + '</td><td>' + data[i][3] + '</td><td>' + data[i][4] + '</td><td>' + data[i][5] + '</td><td>' + data[i][6] + '</td><td>' + btnCell + '</td><td>' + btnDelCell + '</td></tr>')
+                    }
+                    else if (data[i][7] == 'D') {
+                        $('#dep tbody').append('<tr><td>' + data[i][1] + '</td><td>' + data[i][2] + '</td><td>' + data[i][3] + '</td><td>' + data[i][4] + '</td><td>' + data[i][5] + '</td><td>' + data[i][6] + '</td><td>' + btnCell + '</td><td>' + btnDelCell + '</td></tr>')
+                    }
+                }
+            }
+            ,
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log(textStatus, errorThrown);
+            }
+        });
+
+    }
+    function loadEve() {
+        $('#eve tbody').empty();
+        $.ajax({
+            type: 'POST',
+            url: 'load_eve.php',
+            dataType: 'json',
+            success: function (data) {
+
+
+                for (var i = 0; i < data.length; i++) {
+                    var btnCell = '<button id="d' + data[i][0] + '" type="button" class="btn btn-success  btn-sm"   onclick="edit_eve(' + data[i][0] + ')">Edit</button>';
+                    var btnDelCell = '<button id="de' + data[i][0] + '" type="button" class="btn btn-danger btn-sm"   onclick="delete_eve(' + data[i][0] + ')">Delete</button>';
+
+                    $('#eve tbody').append('<tr><td>' + data[i][1] + '</td><td>' + data[i][2] + '</td><td>' + data[i][3] + '</td><td>' + data[i][4] + '</td><td>' + btnCell + '</td><td>' + btnDelCell + '</td></tr>')
+
+                }
+            }
+            ,
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log(textStatus, errorThrown);
+            }
+        });
+
+    }
+    function loadNews() {
+        $('#news-t tbody').empty();
+        $.ajax({
+            type: 'POST',
+            url: 'load_new.php',
+            dataType: 'json',
+            success: function (data) {
+
+
+                for (var i = 0; i < data.length; i++) {
+//                    var btnCell = '<button id="d' + data[i][0] + '" type="button" class="btn btn-danger "   onclick="edit_eve(' + data[i][0] + ')">Edit</button>';
+                    var btnDelCell = '<button id="de' + data[i][0] + '" type="button" class="btn btn-danger btn-sm "   onclick="delete_new(' + data[i][0] + ')">Delete</button>';
+
+                    $('#news-t tbody').append('<tr><td>' + data[i][1] + '</td><td>' + btnDelCell + '</td></tr>')
+
+                }
+            }
+            ,
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log(textStatus, errorThrown);
+            }
+        });
+    }
+
+
+    function delete_new(id) {
+        $.ajax({
+            type: 'POST',
+            url: 'delete_new.php',
+            dataType: 'json',
+            data: {id: id},
+            success: function (data) {
+
+                loadNews();
+                msg("Record Deleted Successfully")
+            }
+            ,
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log(textStatus, errorThrown);
+            }
+        });
+    }
+    function delete_eve(id) {
+        $.ajax({
+            type: 'POST',
+            url: 'delete_eve.php',
+            dataType: 'json',
+            data: {id: id},
+            success: function (data) {
+
+                loadEve();
+                msg("Record Deleted Successfully")
+            }
+            ,
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log(textStatus, errorThrown);
+            }
+        });
+    }
+    function delete_(id) {
+        $.ajax({
+            type: 'POST',
+            url: 'delete_.php',
+            dataType: 'json',
+            data: {id: id},
+            success: function (data) {
+
+                loadData();
+                msg("Record Deleted Successfully")
+            }
+            ,
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log(textStatus, errorThrown);
+            }
+        });
+    }
+
+
+    function edit_(id) {
+        arrdep_savemode = 'd';
+        arrdepid = id;
+        $.ajax({
+            type: 'POST',
+            url: 'get_.php',
+            dataType: 'json',
+            data: {id: id},
+            success: function (data) {
+
+                if (data[7] == "A") {
+                    $('#a-from').val(data[1]);
+                    $('#a-airline').val(data[2]);
+                    $('#a-flight').val(data[3]);
+                    $('#a-shed').val(data[4]);
+                    $('#a-gate').val(data[5]);
+                    $('#a-remark').val(data[6]);
+                }
+                else if (data[7] == "D") {
+                    $('#d-from').val(data[1]);
+                    $('#d-airline').val(data[2]);
+                    $('#d-flight').val(data[3]);
+                    $('#d-shed').val(data[4]);
+                    $('#d-gate').val(data[5]);
+                    $('#d-remark').val(data[6]);
+                }
+
+
+            }
+            ,
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log(textStatus, errorThrown);
+            }
+        });
+    }
+    function edit_eve(id) {
+        event_savemode = 'd';
+        eventid = id;
+        $.ajax({
+            type: 'POST',
+            url: 'get_eve.php',
+            dataType: 'json',
+            data: {id: id},
+            success: function (data) {
+
+                $('#start').val(data[1]);
+                $('#end').val(data[2]);
+                $('#event').val(data[3]);
+                $('#location').val(data[4]);
+
+
+            }
+            ,
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log(textStatus, errorThrown);
+            }
+        });
+    }
+    function msg(msg, type) {//danger
+        $.notify({
+            message: msg,
+        }, {
+            placement: {
+                from: "bottom",
+                align: "center"
+            },
+            type: type,
+            delay: 2000
+        });
+    }
+
+
+    function edit_air() {
+
+        $.ajax({
+            type: 'POST',
+            url: 'load_air.php',
+            dataType: 'json',
+//            data: {id: id},
+            success: function (data) {
+//alert(data)
+                $('#airport').val(data[1]);
+
+
+            }
+            ,
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log(textStatus, errorThrown);
+            }
+        });
+    }
+    function updateAir() {
+
+        $.ajax({
+            type: 'POST',
+            url: 'update_air.php',
+//            dataType: 'json',
+            data: {airport: $('#airport').val()},
+            success: function (data) {
+//alert(data);
+                edit_air();
+                msg("Record updated Successfully");
+
+
+            }
+            ,
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log(textStatus, errorThrown);
+            }
+        });
+    }
+</script>
+</body>
+</html>
